@@ -1,7 +1,7 @@
 # To-do application using Django and React
 *Author: [Fernando França (フランサ)](https://github.com/furansa/django-react-todo-app)*
 
-*Last update: Thu Oct  12 22:03:58 EDT 2019*
+*Last update: Thu Oct  16 22:25:58 EDT 2019*
 
 This is a Django + React **to-do** application running inside Docker. This example 
 is based on this [article](https://scotch.io/tutorials/build-a-to-do-application-using-django-and-react) 
@@ -43,7 +43,7 @@ application got to **http://localhost:3000**.
 
 To access the container for debugging with the application running in foreground:
 ```bash
-docker exec -it tictactoe-test bash
+docker exec -it todo-test bash
 ```
 
 To access the container for debugging without the application running, check the 
