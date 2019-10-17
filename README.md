@@ -23,26 +23,28 @@ $ docker run -d \
 todo-base
 ```
 
-The container will mount the volume directory indicated by the **-v** option, 
-this directory is where the Python code will reside. Use the option **cached** 
-on the ```-v "${PWD}"/app:/home/todo:cached``` if you want to improve performance 
-a little bit on Os X.
+The container will mount the volumes directories indicated by the **-v** option, 
+the **${PWD}/app** is the directory where the code will reside, and for the sake 
+of convenience, the **entrypoint.sh** is mounted as read-only inside the container. 
+You can use the option **cached** on the **app** volume mount if you want to improve 
+performance a little bit on Os X.
 
 On the very first time, the **entrypoint.sh** script will create a new project 
 called **backend** and inside it, create a application called **todo**. The root 
 path to the application inside the container will be **/home/todo/**.
 
-Now you can start to write your code and it will automatically be updated inside 
-the running container. To access the backend application (API) from the host machine 
-open a browser to **http://localhost:8000**.
+Now you can start to write your code on the host machine and it will automatically 
+be updated inside the running container. To access the backend application (API) 
+from the host machine open a browser to **http://localhost:8000**.
 
 Also, at the first time, the frontend application will be created inside the 
 **frontend** directory with all the required packages, to access the frontend 
 application got to **http://localhost:3000**.
 
-To access the container for debugging:
+To access the container for debugging with the application running in foreground:
 ```bash
-docker exec -it todo-test bash
+docker exec -it tictactoe-test bash
 ```
 
-Go to **/home/todo** and from there you can control everything.
+To access the container for debugging without the application running, check the 
+**entrypoint.sh** script and uncomment the final lines.
